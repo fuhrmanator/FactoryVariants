@@ -44,7 +44,28 @@ c1 := localUnstableClients at: 1.
 
 m1 := c1 methods.
 
-"Imperfect collect (nested)"
-creates := m1 collect: [ :m |
-	m outgoingInvocations collect: [ :o |
-		(o signature beginsWith:'new ') ifTrue: m ] ].
+oi := Set new.
+
+m1 do: [ :m | oi := oi , (m outgoingInvocations) ].
+
+
+in1 := oi asArray first.
+
+in1 getReceivingFAMIXClass.
+
+"
+
+createsClasses := Set new.
+
+oi do: [ :invoc | (invoc signature beginsWith:'new ')
+	ifTrue: [createsClasses := createsClasses , (invoc receiver) ]].
+
+createsClasses.
+
+"
+"
+m1 do: [ :m |
+	m outgoingInvocations do: [ :o |
+		(o signature beginsWith:'new ') ifTrue: [createsClasses := createsClasses, o ] ] ].
+
+createsClasses."

@@ -1,12 +1,12 @@
 package simple_factory;
 
 public class SimpleFactory {
-    public enum PRODUCT{A,B,C};
+    public enum PRODUCT{A,B,C}
     public static IProduct createProduct(PRODUCT type) {
         IProduct product;
         switch (type) {
             case A:
-                product = new ProductA();
+                product = new ProductA(2);
                 break;
             case B:
                 product = new ProductB();

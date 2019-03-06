@@ -1,6 +1,6 @@
 import simple_factory.SimpleFactory;
 
-public class ClientMain {
+public class ClientOfFactoryMain {
 
     public static void main(String[] args) {
 

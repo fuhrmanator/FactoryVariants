@@ -6,4 +6,10 @@ class ProductA implements IProduct {
     public ProductA(int i) {
         System.out.println("i=" + i);
     }
+
+    @Override
+    public void m1() {
+
+    }
+
 }

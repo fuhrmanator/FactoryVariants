@@ -1,12 +1,12 @@
-import no_factory.ProductC;
+import no_factory.*;
 import simple_factory.IProduct;
 
 public class ClientNoFactoryMain {
 
     public static void main(String[] args) {
 
-        IProduct productA = new no_factory.ProductA(1, 2);
-        IProduct productB = new no_factory.ProductB();
+        IProduct productA = new ProductA(1, 2);
+        IProduct productB = new ProductB();
         IProduct productC = new ProductC();
     }
 }
